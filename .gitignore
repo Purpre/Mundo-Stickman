@@ -1,0 +1,5 @@
+.vscode/
+node_modules/
+jarvis_notes.txt
+world_data.json
+open.sh

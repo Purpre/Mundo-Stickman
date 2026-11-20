@@ -1,0 +1,30 @@
+[
+    {
+        "from": {
+            "attribute": "economy",
+            "amount": 2
+        },
+        "to": "military"
+    },
+    {
+        "from": {
+            "attribute": "resources",
+            "amount": 2
+        },
+        "to": "economy"
+    },
+    {
+        "from": {
+            "attribute": "economy",
+            "amount": 2
+        },
+        "to": "education"
+    },
+    {
+        "from": {
+            "attribute": "technology",
+            "amount": 2
+        },
+        "to": "economy"
+    }
+]

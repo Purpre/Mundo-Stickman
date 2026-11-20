@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mundo Stickman Web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div style="display: flex; gap: 50%; margin-left: 1%;">
+        <h1>Mundo Stickman Web</h1>
+        <h1 id="year">Ano: 1000</h1>
+    </div>
+    <div class="container">
+
+        <div class="leftPanel">
+            <img id="flag" style="border-radius: 5px; border-style: solid; height: 17%">
+            <h1 id="name" style="height: 5%; margin-bottom: 0;">Nome</h1>
+            <h3 id="capitalLabel" style="margin-top: 0;">Capital: Nenhuma</h3>
+
+            <div id="Attributes" style="width: 350px;">
+                <h3 style="margin: 0;" , id="diaryDominations">Dominações diarias disponiveis: 0</h3>
+
+                <br>
+
+                <h3 style="margin: 0; margin-bottom: 0%; margin-top: 0;" , id="diaryPoints">Pontos diarios disponiveis:
+                    0</h3>
+                <h3 style="margin: 0; margin-bottom: 8%; margin-top: 0%;" , id="diaryObjectives">Objetivos diarios
+                    disponiveis: 0</h3>
+
+                <div class="Attribute">
+                    <h3 id="military">Poder Militar: 0</h3>
+                    <button class="military AtbButton">-</button>
+                    <button class="military AtbButton">+</button>
+                    <button class="military objButton"> <img src="images/dices.png" height="25px"> </button>
+                </div>
+
+                <div class="Attribute">
+                    <h3 id="economy">Economia: 0</h3>
+                    <button class="economy AtbButton">-</button>
+                    <button class="economy AtbButton">+</button>
+                    <button class="economy objButton"> <img src="images/dices.png" height="25px"> </button>
+                </div>
+
+                <div class="Attribute">
+                    <h3 id="resources">Recursos: 0</h3>
+                    <button class="resources AtbButton">-</button>
+                    <button class="resources AtbButton">+</button>
+                    <button class="resources objButton"> <img src="images/dices.png" height="25px"> </button>
+                </div>
+
+                <div class="Attribute">
+                    <h3 id="technology">Tecnologia: 0</h3>
+                    <button class="technology AtbButton">-</button>
+                    <button class="technology AtbButton">+</button>
+                    <button class="technology objButton"> <img src="images/dices.png" height="25px"> </button>
+                </div>
+
+                <div class="Attribute">
+                    <h3 id="education">Educação: 0</h3>
+                    <button class="education AtbButton">-</button>
+                    <button class="education AtbButton">+</button>
+                    <button class="education objButton"> <img src="images/dices.png" height="25px"> </button>
+                </div>
+
+                <br>
+
+                <div class="Attribute">
+                    <h3 id="stability">Estabilidade: 0</h3>
+                </div>
+
+                <div class="Attribute">
+                    <h3 id="commerce">Comercio: 0</h3>
+                </div>
+
+                <br> <br>
+
+                <h3>Conversões disponiveis</h3>
+
+                <select style="height: 25px; display: none;">
+
+                </select>
+
+                <br>
+
+                <div id="AvailableConversions">
+                    <button class="convertButton 2 economy military">2 ECO → PM</button>
+                    <button class="convertButton 2 economy education">2 ECO → EDU</button>
+                    <button class="convertButton 2 resources economy">2 REC → ECO</button>
+                    <button class="convertButton 2 technology economy">2 TEC → ECO</button>
+                </div>
+
+                <h3>Rendimentos educacionais (A cada 5 de EDU)</h3>
+
+                <button class="eduEarning stability">Estabilidade</button>
+                <button class="eduEarning technology">Tecnologia</button>
+
+                <br>
+
+                <h3></h3>
+
+            </div>
+
+        </div>
+
+
+        <div id="map"></div>
+
+
+        <div id="TerritoryPanel">
+            <h1 id="selectedTerritoryLabel">Territorio selecionado: nenhum</h1>
+            <br>
+
+            <img id="territoryFlag" style="border-radius: 5px; border-style: solid; height: 15%; width: 64%;">
+
+            <br>
+
+            <h3 id="territoryOwner" style="margin: 0;">Proprietário: nenhum</h3>
+            <h3 id="territoryCityLabel" style="margin: 0;">Cidade: nenhuma</h3>
+            <h3 id="territoryCityTypeLabel" style="margin: 0; display: none;">Cidade pobre</h3>
+            <h3 id="territoryFortressLabel" style="display: none; margin: 0;">Possui fortaleza</h3>
+            <br>
+            <button id="makeCapitalButton" class="territoryButton" style="display: none;">Tornar capital ( -5 EST
+                )</button>
+            <br>
+
+            <div style="display: none; flex-direction: column; gap: 5px;" id="buildCityDiv">
+                <h3 style="margin-bottom: 0;">Selecione o tipo de cidade que deseja construir</h3>
+                <select id="cityTypeSelect" style="height: 25px;">
+                    <option value="military">Militar</option>
+                    <option value="economy">Economica</option>
+                    <option value="technology">Tecnologica</option>
+                    <option value="education">Universitaria</option>
+                    <option value="stability">Estabilizadora</option>
+                    <option value="resources">Rural</option>
+                </select>
+
+                <br>
+
+                <h3 style="margin: 0;">Nome da cidade:</h3>
+                <input id="cityName" name="cityName" placeholder="Ex: Londres, Paris"></input>
+
+                <br>
+
+                <button id="buildCityButton" class="territoryButton">Construir cidade ( -10 ECO & -2 REC )</button>
+            </div>
+
+            <br>
+
+            <button id="buildFortressButton" class="territoryButton" style="display: none;">Construir fortaleza ( -2 ECO
+                )</button>
+
+            <button id="conquerTerritoryButton" class="territoryButton" style="display: none;">Dominar</button>
+            <h3 style="margin: 0; display: none;" id="attackingLabel">Atacando...</h3>
+        </div>
+    </div>
+
+    <div id="countryList">
+        <div class="countryCard">
+            <h1>País</h1>
+        </div>
+    </div>
+
+    <script src="map.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

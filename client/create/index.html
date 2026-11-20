@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Criação de País</h1>
+
+    <br><br><br>
+    <form id="createCountryForm">
+        <label for="countryName">Nome do país</label>
+        <input type="text" id="countryName" placeholder="Ex.: Republica Sul..." required>
+
+        <br><br>
+
+        <label for="countryID">ID do país</label>
+        <input type="text" id="countryID" placeholder="Ex.: suita" required>
+
+        <br><br>
+
+        <label for="password">Crie uma senha</label>
+        <input type="password" id="password" required>
+
+        <br><br>
+
+        <label for="selectColor">Selecione uma cor</label>
+        <select id="selectColor">
+            <option value="red" id="red">Vermelho</option>
+            <option value="orange" id="orange">Laranja</option>
+            <option value="yellow" id="yellow">Amarelo</option>
+            <option value="black" id="black">Preto</option>
+            <option value="dark_green" id="dark_green">Verde Escuro</option>
+            <option value="light_green" id="light_green">Verde Claro</option>
+            <option value="purple" id="purple">Roxo</option>
+            <option value="pink" id="pink">Rosa</option>
+            <option value="cyan" id="cyan">Ciano</option>
+            <option value="blue" id="blue">Azul</option>
+            <option value="brown" id="brown">Marrom</option>
+            <option value="white" id="white">Bege</option>
+            <option value="wine" id="wine">Vinho</option>
+            <option value="light_brown" id="light_brown">Marrom Claro</option>
+            <option value="chaotic_green" id="chaotic_green">Verde Caótico</option>
+            <option value="light_pink" id="light_pink">Rosa Claro</option>
+            <option value="gray" id="gray">Cinza</option>
+        </select>
+
+        <br><br>
+
+        <label for="initialTerritory">Digite o nome do seu territorio inicial (consulte SM em caso de duvida)</label>
+        <input type="text" id="initialTerritory" placeholder="Ex.: United Kingdom, France" required>
+
+        <br><br>
+
+        <button type="submit">Criar</button>
+
+        <p id="errorMessage"></p>
+    </form>
+
+     <script src="create.js"></script>
+
+</body>
+
+</html>
